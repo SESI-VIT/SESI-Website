@@ -1151,14 +1151,6 @@ const Home = () => {
     };
   }, []);
 
-  const scrollToId = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
     <div className="sesi-root">
       <style>{globalStyles}</style>
