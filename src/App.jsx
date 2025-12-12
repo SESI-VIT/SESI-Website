@@ -387,49 +387,6 @@ const SolarIntro = ({ onComplete }) => {
   );
 };
 
-const MainContent = () => (
-  <div style={{
-    minHeight: '100vh',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    color: 'white',
-    fontFamily: 'Arial, sans-serif',
-    textAlign: 'center',
-    padding: '20px'
-  }}>
-    <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Welcome to SESI-VIT</h1>
-    <p style={{ fontSize: '1.2rem', maxWidth: '600px', lineHeight: '1.6' }}>
-      Exploring renewable energy solutions and sustainable technologies for a brighter, cleaner future. Join us in harnessing the power of the sun!
-    </p>
-    <div style={{ marginTop: '40px' }}>
-      <button style={{
-        background: '#ffc107',
-        color: '#000',
-        border: 'none',
-        padding: '15px 30px',
-        borderRadius: '25px',
-        fontSize: '1.1rem',
-        fontWeight: '600',
-        cursor: 'pointer',
-        margin: '0 10px'
-      }}>Our Projects</button>
-      <button style={{
-        background: 'transparent',
-        color: '#fff',
-        border: '2px solid #fff',
-        padding: '15px 30px',
-        borderRadius: '25px',
-        fontSize: '1.1rem',
-        fontWeight: '600',
-        cursor: 'pointer',
-        margin: '0 10px'
-      }}>Join SESI</button>
-    </div>
-  </div>
-);
 
 const App = () => {
   const [showIntro, setShowIntro] = useState(true);
