@@ -67,7 +67,12 @@ const EventCard = forwardRef(({ event, status, onClick, side, scrambleProps }, r
             {event.description.substring(0, 100)}...
           </ScrambledText>
 
-          <img src={imageUrl} alt={`Picture from ${event.title}`} className="event-image-thumb" />
+          <img
+            src={imageUrl}
+            alt={event.title}
+            className="event-image-thumb"
+          />
+
 
           <button className="details-button">
             <ScrambledText {...scrambleProps} as='span'>
