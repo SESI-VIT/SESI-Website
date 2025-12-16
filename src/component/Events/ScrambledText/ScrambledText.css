@@ -1,0 +1,31 @@
+.text-block {
+  margin: 30px auto;
+  max-width: 90%;
+  text-align: center;
+
+  font-family: monospace;
+  font-size: clamp(16px, 3vw, 24px);
+
+  color: #E0E0E0;
+  line-height: 1.4;
+}
+
+.char {
+  will-change: transform;
+  display: inline-block;
+
+  color: #CDA42A;
+  text-shadow: 0 0 2px rgba(205, 164, 42, 0.5);
+}
+
+.text-block {
+  margin: 20px auto 40px auto;
+  max-width: 95%;
+  text-align: center;
+
+  font-size: clamp(15px, 2.0vw, 20px);
+
+  font-family: monospace;
+  color: #E0E0E0;
+  line-height: 1.3;
+}

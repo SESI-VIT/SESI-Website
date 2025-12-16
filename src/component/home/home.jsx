@@ -39,7 +39,7 @@ body {
 }
 
 .sesi-root {
-  min-height: 100vh;
+  margin-bottom: -100px;
   position: relative;
 }
 
@@ -1150,6 +1150,8 @@ const Home = () => {
       observer.disconnect();
     };
   }, []);
+
+
 
   return (
     <div className="sesi-root">

@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto+Mono:wght@300&display=swap');
+
+:root {
+  --primary-color: #CDA42A; /* Rich Gold/Amber (Accents) */
+  --secondary-color: #333333; /* Dark Charcoal Background */
+  --card-background: #1a1a1a;
+  --text-color: #f0f0f0; 
+  --light-text: #AAAAAA; 
+  --dark-text: #000000;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Block Colors */
+  --block-color-1: #4A4A4A; 
+  --block-color-2: #CDA42A; /* Full Gold for proverb block */
+  --block-color-3: #B8860B; /* Lighter Gold (Used for main asymmetrical cards) */
+  --tag-color: #CDA42A;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(205,164,42,0.06), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(205,164,42,0.06), transparent 40%),
+    linear-gradient(135deg, rgba(205,164,42,0.03) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(205,164,42,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(205,164,42,0.03) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(205,164,42,0.03) 25%, transparent 25%),
+    var(--secondary-color);
+  background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px, 100% 100%;
+  background-repeat: repeat;
+  color: var(--text-color);
+}
+
+
+/* --- 1. Header Styling (Navigation Bar) --- */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 5%;
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    font-family: var(--font-heading);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.main-nav .logo-group {
+    display: flex;
+    align-items: center; 
+    margin-right: auto;
+}
+.logo { color: var(--primary-color); font-size: 1.8rem; font-weight: 900; }
+.chapter { 
+    color: var(--primary-color); /* Yellow color */
+    font-size: 1.8rem; /* Same size as .logo */
+    font-weight: 900; 
+    margin-left: 8px; 
+    line-height: 1; 
+}
+.nav-links { 
+    display: flex; 
+    gap: 30px; 
+    margin-left: auto;
+}
+.nav-link { color: var(--text-color); text-decoration: none; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+.nav-link.active-link { color: var(--primary-color); font-weight: 700; border-bottom: 2px solid var(--primary-color); }
+.nav-link:not(.active-link):hover { color: var(--primary-color); }
+
+/* --- 2. Page Title Area --- */
+.blog-page-container {
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.blog-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.blog-header h1 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 0;
+}
+.read-blog-button {
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.read-blog-button:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-text);
+    box-shadow: 0 0 15px rgba(205, 164, 42, 0.7); 
+}
+
+
+/* --- 3. ASYMMETRICAL BLOG GRID LAYOUT --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: auto auto auto;
+    gap: 30px; 
+    margin-bottom: 80px;
+}
+
+.feature-card-lg { grid-column: 1 / 2; grid-row: 1 / 3; }
+.stacked-content { grid-column: 2 / 3; display: flex; flex-direction: column; gap: 30px; }
+
+
+/* --- 4. INDIVIDUAL CARD STYLING & GLITTER EFFECT --- */
+.blog-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s; 
+    cursor: pointer;
+    /* FIX: Explicitly remove underline from the link wrapping the card */
+    text-decoration: none !important; 
+}
+
+/* Glitter effect on all cards */
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(205, 164, 42, 0.7); 
+    /* FIX: Ensure no underline appears on hover */
+    text-decoration: none !important; 
+}
+
+/* --- Large Feature Card (Left Side) --- */
+.feature-card-lg .image-container {
+    height: 100%;
+    /* 💡 ORIGINAL VALUE: min-height: 75vh; */
+    /* 💡 CHANGE: Reduce height to make the image block smaller, now using a fixed pixel value for consistency */
+    min-height: 450px; 
+    position: relative;
+    background-color: var(--block-color-3); /* Light Gold */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.feature-card-lg .content-footer {
+    padding: 30px;
+    /* 💡 CHANGE: Use solid primary color background instead of transparent gradient */
+    background: var(--primary-color);
+}
+.feature-card-lg a {
+    text-decoration: none; 
+    color: var(--dark-text); /* Black text on Gold background */
+}
+.feature-card-lg h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--dark-text); /* Black text */
+    margin-top: 10px;
+    text-shadow: none;
+}
+
+
+/* --- Top Right Block (Light Gold Text Block) --- */
+.card-block-colored {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.block-1 {
+    background-color: var(--block-color-3); /* Light Gold */
+    color: var(--dark-text); /* Dark text for readability */
+}
+.block-1 a {
+    text-decoration: none; 
+    color: var(--dark-text); /* Ensure title link underline is removed and color is dark */
+}
+.block-1 h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--dark-text); 
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+.block-1 .excerpt {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+}
+.block-link {
+    display: block;
+    color: var(--secondary-color); /* Dark Charcoal link */
+    font-weight: 700;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.9rem;
+}
+.block-link:hover {
+    color: var(--dark-text);
+}
+
+/* --- Middle Right Card (Full Primary Gold Background) --- */
+.card-image-small {
+    /* 💡 ORIGINAL VALUE: height: 300px; */
+    /* 💡 CHANGE: Reduce the height of the smaller image card */
+    height: 250px; 
+    position: relative;
+    background: var(--primary-color); /* Full Bright Gold */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.card-image-small a {
+    text-decoration: none;
+    color: var(--dark-text);
+}
+.card-image-small h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    padding: 15px;
+    color: var(--dark-text); 
+    margin: 0;
+    /* Removed the previous gradient here */
+}
+.card-image-small .card-image-small-content {
+    /* 💡 CHANGE: Added solid primary color background to the content container */
+    background: var(--primary-color);
+}
+.card-image-small .meta-info.tag-item {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* --- ADDED STYLES FOR THE IMAGE TAGS INSERTED IN BlogList.js --- */
+.card-image-content {
+    /* Since we set height on the container, the image needs to fill it */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the space without distortion */
+    z-index: 1; /* Keep the image behind the text content (which should have z-index > 1) */
+}
+
+/* Ensure the text content is above the image */
+.feature-card-lg .content-footer,
+.card-image-small .card-image-small-content {
+    position: relative;
+    z-index: 5;
+    /* You might need to adjust the text colors in BlogList.js if the image is too bright */
+}
+/* END ADDED STYLES */
+
+
+/* --- Bottom Right Block (Proverb Block - Full Gold) --- */
+.card-tags {
+    background-color: var(--block-color-2); /* Full Gold */
+    padding: 30px;
+    color: var(--dark-text);
+    text-align: center;
+}
+.card-tags p {
+    color: var(--dark-text) !important; 
+}
+
+
+/* --- 5. NEW: Overflow List Styling (Gold Cards) */
+.overflow-list-container {
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 80px auto;
+}
+
+.overflow-list-container h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(205, 164, 42, 0.3);
+    padding-bottom: 10px;
+}
+
+.overflow-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.simple-card {
+    display: flex; /* 💡 CHANGE 1: Use flexbox to align image and text horizontally */
+    align-items: center; /* Vertically center the content */
+    padding: 0; /* Remove padding from the anchor tag and move it inside the containers */
+    background-color: var(--block-color-3); /* Light Golden Background */
+    border-radius: 10px;
+    /* FIX: Explicitly remove underline for normal state */
+    text-decoration: none !important; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--block-color-3); 
+    height: 120px; /* 💡 CHANGE 2: Give the card a fixed height for consistency */
+    overflow: hidden; /* Hide anything that spills out */
+}
+
+.simple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(205, 164, 42, 0.7); 
+    /* FIX: Explicitly remove underline for hover state */
+    text-decoration: none !important;
+}
+
+/* --- New Styles for the Image in Simple Card --- */
+.simple-card-image-container {
+    width: 35%; /* 💡 Define space for the image */
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0; /* Prevents the image container from shrinking when text gets longer */
+}
+
+.simple-card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- New Styles for the Text Content in Simple Card --- */
+.simple-card-content {
+    width: 65%; /* 💡 Define space for the text */
+    padding: 15px; /* Add padding here now that it's removed from .simple-card */
+}
+
+
+.simple-card-meta {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem; /* Reduced font size to fit better */
+    color: var(--dark-text); /* Black text */
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.simple-card h4 {
+    font-family: var(--font-heading);
+    color: var(--dark-text); /* Black text */
+    font-size: 1.1rem; /* Reduced font size to fit better */
+    margin: 0 0 5px 0; /* Reduced margin */
+    line-height: 1.2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit title to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.simple-card p {
+    display: none; /* 💡 CHANGE: Hide the excerpt text to save vertical space */
+}
+
+/* --- Article Detail Page Styling --- */
+.article-detail-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: var(--card-background); 
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    border-left: 5px solid var(--primary-color); 
+}
+.back-link { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+.article-title { font-family: var(--font-heading); color: var(--primary-color); font-size: 3rem; }
+.article-meta { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; color: var(--light-text); }
+.article-content h1, .article-content h2 { font-family: var(--font-heading); color: var(--primary-color); border-left: 3px solid var(--primary-color); padding-left: 15px; }
+.article-content p {
+    line-height: 1.9;
+    font-size: 1.05rem;
+    color: var(--primary-color); 
+}
