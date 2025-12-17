@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -22,21 +22,41 @@ html, body {
 }
 
 body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial; background:var(--bg); color:var(--text-main);overflow-x:hidden;scroll-behavior:smooth}
-header{header {
+header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--nav-height);
+  min-height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #050816;   /* <-- THIS PREVENTS TRANSPARENCY ISSUES */
-  z-index: 9999;         /* <-- keep it above all content */
+  background: transparent;
+  z-index: 9999;
   pointer-events: none;
+
+  transform: translateY(0);
+  transition: transform 0.35s ease; /* slide animation */
 }
+
+/* when hidden */
+header.hide {
+  transform: translateY(-100%);
 }
-.nav-inner{pointer-events:auto;width:min(1120px,100%);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+
+.nav-inner {
+  pointer-events: auto;
+  width: min(1120px, 100%);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;          /* KEEP */
+}
+nav {
+  margin-left: auto;            /* PUSH NAV TO THE RIGHT */
+  display: flex;
+  align-items: center;
+}
+
 .logo{display:flex;align-items:center;gap:.75rem;cursor:pointer;border:none;background:transparent;padding:0}
 .logo-mark{width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,179,71,0.5);display:grid;place-items:center;background:radial-gradient(circle at 30% 10%,rgba(255,255,255,0.24) 0,transparent 55%),radial-gradient(circle at 70%90%,rgba(255,140,0,0.9) 0,transparent 70%);box-shadow:0 0 18px rgba(255,179,71,0.65);font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#1f2937}
 .logo-text-main{font-weight:650;letter-spacing:.08em;font-size:.78rem;text-transform:uppercase;color:white;padding-bottom:6px;}
@@ -70,12 +90,34 @@ const HeaderOnly = () => {
         navigate(path);
         window.scrollTo(0, 0);
     };
+    const [hideHeader, setHideHeader] = useState(false);
+const lastScrollY = useRef(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+      setHideHeader(true);   // scrolling down
+    } else {
+      setHideHeader(false);  // scrolling up
+    }
+
+    lastScrollY.current = currentScrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
     return (
         <div className="sesi-root1">
             <style>{globalStyles}</style>
+           
 
-            <header>
+            <header className={hideHeader ? "hide" : ""}>
+
                 <div className="nav-inner">
 
                     {/* LOGO (GOES TO HOME) */}

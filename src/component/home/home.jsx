@@ -169,7 +169,7 @@ nav button:hover::after {
 }
 
 main {
-  width: min(1120px, 100%);
+  width: min(1320px, 100%);
   margin: 0 auto;
   padding: calc(var(--nav-height) + 0.5rem) 1.6rem 3rem;
 }
@@ -191,18 +191,21 @@ section {
 .hero {
   position: relative;
   min-height: calc(100vh - var(--nav-height));
-  background: radial-gradient(
-      circle at 50% 20%,
-      rgba(255,180,80,0.18) 0%,
-      rgba(255,140,0,0.12) 22%,
-      rgba(255,115,0,0.08) 40%,
-      transparent 70%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255,200,120,0.12) 0%,
-      transparent 60%
-    );
+  /* existing styles stay as-is */
+
+  /* fade out on the right edge */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
   background-blend-mode: screen;
 }
 
@@ -661,7 +664,7 @@ section {
 }
 
 .motto-section[data-motto="convert"] .motto-card {
-  margin-left: -320px;
+  margin-left: -350px;
   margin-right: auto;
   justify-self: start;
 }

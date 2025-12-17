@@ -20,7 +20,7 @@ const facultyCoordinators = [
   { name: 'Dr. Aruna Kumar Behura', grade: 'Associate Professor Grade 2', department: 'School of Mechanical Engineering (SMEC)', image: 'https://economic-chocolate-bq32osctbk.edgeone.app/Screenshot%202025-10-24%20072810.png' }
 ];
 
-function SesiBoardPage() {
+function Board() {
   const [activeMember, setActiveMember] = useState(null);
   const [rotation, setRotation] = useState(0);
   const [rotationSpeed] = useState(0.1);
@@ -259,4 +259,4 @@ function SesiBoardPage() {
   );
 }
 
-export default SesiBoardPage;
+export default Board;

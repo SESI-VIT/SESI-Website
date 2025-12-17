@@ -1,4 +1,10 @@
 // src/data/articlesData.js
+// IMAGE IMPORTS
+import solarPanel from "../../../assets/solar-panel.jpg";
+import pvtImage from "../../../assets/pvt.jpg";
+import renewableEnergy from "../../../assets/renewable-energy.jpg";
+import solarPower from "../../../assets/solar-power.jpg";
+import photoCell from "../../../assets/photo-cell.jpg";
 
 export const articles = [
   {
@@ -11,7 +17,7 @@ export const articles = [
     category: 'TECHNOLOGY',
     featured: true,
     linkUrl: 'https://sesivit.wordpress.com/2025/10/16/revolutionizing-renewable-energy-the-aureus-solar-panel-innovation/',
-    imageUrl: "/images/solar-panel.jpg"
+    imageUrl: solarPanel,
   },
   {
     id: 'solar-energy-cons-analysis',
@@ -34,7 +40,7 @@ export const articles = [
     category: 'INDUSTRY',
     featured: true,
     linkUrl: 'https://sesivit.wordpress.com/2025/07/17/harnessing-the-power-of-two-the-rise-of-photovoltaic-thermal-pvt-hybrid-solar-technology/',
-    imageUrl: "/images/pvt.jpg"
+    imageUrl: pvtImage,
   },
   {
     id: 'introduction-to-renewable-energy',
@@ -46,7 +52,7 @@ export const articles = [
     category: 'LEARNING',
     featured: false,
     linkUrl: 'https://sesivit.wordpress.com/2025/09/06/an-introduction-to-renewable-energy/',
-    imageUrl: "/images/renewable-energy.jpg"
+    imageUrl: renewableEnergy,
   },
   {
     id: 'solar-power-myth-buster',
@@ -58,7 +64,7 @@ export const articles = [
     category: 'SOLAR_TECH',
     featured: false,
     linkUrl: 'https://sesivit.wordpress.com/2025/08/03/solar-power-myth-buster-real-world-uses-vs-popular-beliefs/',
-    imageUrl: "/images/solar-power.jpg"
+    imageUrl: solarPower,
   },
   {
     id: 'photovoltaic-cells-reshaping-world',
@@ -70,6 +76,6 @@ export const articles = [
     category: 'SOLAR_TECH',
     featured: false,
     linkUrl: 'https://sesivit.wordpress.com/2025/07/17/from-crisis-to-clean-power-how-photovoltaic-cells-are-reshaping-our-world/',
-    imageUrl: "/images/photo-cell.jpg"
+    imageUrl: photoCell,
   },
 ];
