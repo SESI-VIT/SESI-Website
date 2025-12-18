@@ -2,10 +2,15 @@ import React from "react";
 
 const IconLink = ({ href = "#", ariaLabel = "icon", children }) => (
   <a
-    href={href}
-    aria-label={ariaLabel}
-    className="footer-icon"
-    style={{ transition: "transform 0.2s ease", display: "inline-block" }}
+  href={href}
+  aria-label={ariaLabel}
+  className="footer-icon"
+  style={{
+    transition: "transform 0.2s ease",
+    display: "inline-block",
+    pointerEvents: "auto"
+  }}
+
     onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.25)")}
     onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
   >
@@ -18,8 +23,15 @@ const Footer = () => {
     <footer
       id="contact"
       className="footer"
-      style={{ padding: "2rem 0", textAlign: "center", background: "#050816" }}
+      style={{
+        padding: "2rem 0",
+        textAlign: "center",
+        background: "rgb(5, 8, 22, 0.45)",
+        position: "relative",
+        zIndex: 1000
+      }}
     >
+
       <div
         className="footer-inner"
         style={{
