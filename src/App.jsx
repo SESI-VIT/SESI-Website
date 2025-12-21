@@ -10,6 +10,7 @@ import Events from "./pages/Events";
 import Blogs from "./pages/Blogs";
 import Achievements from "./pages/Achievements";
 import Board from "./pages/board";
+import Gallery from "./component/gallery/gallery.jsx";
 
 const App = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -29,7 +30,7 @@ const App = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/board" element={<Board />} />
-        <Route path="/gallery" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
 
       <Footer id="contact" />
