@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CircularGallery from './CircularGallery';
-import { navData } from './data/info'; 
 import './Gallery.css';
 
 const SESI_BLACK = '#111111';
